@@ -114,3 +114,61 @@ input {
     border-radius: 0 10px 10px 0;
     border-width: 1px;
 }
+
+#formula {
+    margin: 0;
+    padding: 10px 0;
+}
+
+#formula p {
+    margin: 10px 0;
+}
+
+.buttonGroup {
+    text-align: center;
+    width: 100%;
+    padding: 20px 0;
+}
+
+button {
+    cursor: pointer;
+    font-size: 20px;
+    width: 150px;
+    height: 46px;
+    margin: 0 5px;
+    border-radius: 10px;
+    border-color: black;
+    border-width: 1px;
+    background-color: #ffa259;
+}
+
+.buttonCollumn {
+     display: flex;
+     flex-direction: column;
+}
+
+.buttonCollumn button {
+    width: 310px;
+    margin: 5px auto;
+}
+
+#liffLoginButton {
+    background-color: #91bd3a;
+}
+
+#liffLogoutButton {
+    background-color: #fa4252;
+}
+
+#code-block {
+    background-color: #eee;
+    border: 1px solid #999;
+    display: block;
+    padding: 20px;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
