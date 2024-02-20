@@ -55,17 +55,17 @@
                 <option value="digital-storage">Digital-Storage</option>
             </select>
         </div>
-        <div>
-            <div>
-                <input type="text">
+        <div id="converterTop" class="converter">
+            <div class="input">
+                <input id="inputTop" type="number" value="1" oninput="convert();">
             </div>
-            <div>
-                <select name="" id=""></select>
+            <div class="option">
+                <select id="optionTop" onchange="convert();"></select>
             </div>
         </div>
-        <div>
-            <div>
-                <input type="text">
+        <div id="converterBottom" class="converter">
+            <div class="input">
+                <input id="inputBottom" type="number" value oninput="convertBack();"/>
             </div>
             <div>
                 <select name="" id=""></select>
