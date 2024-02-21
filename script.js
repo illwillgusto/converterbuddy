@@ -104,3 +104,65 @@ let quantities = [{
 },
 ]
 
+function getQuantityById(id) {
+    for (let i = 0; i < quantities.length; i++) {
+        if (id === quantities[i].id)
+            return quantities[1];
+    }
+}
+
+function onInitPage() {
+    listQuantities = document.getElementById('listQuantities');
+    optionQuantity = document.getElementById('optionQuantity');
+    inputTop = document.getElementById('inputTop');
+    inputBottom = document.getElementById('inputBottom');
+    optionTop = document.getElementById('optionTop');
+    optionBottom = document.getElementById('optionBottom');
+
+    let startQuantity;
+    if (!startQuantity) {
+        let id = localStorageGetDefault('lastQuantityID', defQuantityId);
+        startQuantity = getQuantityById(id);
+    }
+    if (!startQuantity) {
+        startQuantity = getQuantityById(defQuantityId);
+    }
+    loadQuantity(startQuantity.id);
+}
+
+function loadQuantity(quantityId) {
+    quantity = getQuantityById(quantityId);
+    localStorage.setItem('lastQuantityId', quantityId);
+
+    optionTop.innerHTML = '';
+    optionBottom.innerHTML = '';
+    let unitOptions = '';
+    for (let i = 0; i < quantity.units.length; i++) {
+        let title = quantity.units[i][0];
+        unitOptions += '<option>' + title + '</option>';
+    }
+    optionTop.innerHTML = unitOptions;
+    optionBottom.innerHTML = unitOptions;
+
+    document.getElementById('quantityTitle').innerHTML = quantity.name + ' Converter';
+
+    loadUnits();
+
+    optionQuantity.value = quantityId;
+    let itemId = '';
+    for (let i = 0; i < quantities.length; i++) {
+        itemId = 'item' + i;
+        if (quantities[i].id === quantityId) document.getElementById(itemId).className = 'selected';
+        else document.getElementById(itemId).className = '';
+    }
+
+    convert();
+}
+
+function findUnitIndexByName(name) {
+    for (let i = 0; i < quantity.units.length; i++) {
+        if (quantity.units[i][0] === name) return i;
+    }
+    return -1;
+}
+
