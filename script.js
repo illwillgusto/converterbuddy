@@ -59,4 +59,48 @@ let quantities = [{
         ["picosecond", 1e-12],
     ]
 },
+{
+    name: 'Volume',
+    id: 'volume',
+    defUnitIndex: 5,
+    units: [
+        ["cubic kilometer", 1e12],
+        ["cubic meter kubik", 1e3],
+        ["cubic decimete kubik", 1],
+        ["cubic millimeter kubik", 1e-6],
+        ["kilometer", 1e3],
+        ["liter", 1],
+        ["milliliter", 1e-3],
+        ["cubic yard kubik", 764.554857984],
+        ["cubic mil kubik", 4.168181825e12],
+        ["cubic inci kubik", 0.016387064],
+        ["cubic kaki kubik", 28.316846592],
+        ["gallon", 3.785411784],
+        ["cup", 0.2365882365],
+        ["tablespoon", 0.01478676478125],
+        ["teaspoon", 0.00492892159375],
+    ]
+},
+{
+    name: 'Digital Storage',
+    id: 'digital storage',
+    defUnitIndex: 1,
+    units: [
+        ["bits", 0.125],
+        ["bytes", 1],
+        ["kilobits", 128],
+        ["kilobytes", 1024],
+        ["megabits", 131072],
+        ["megabytes", 1048576],
+        ["gigabits", 134217728],
+        ["gigabytes", 1073741824],
+        ["terabits", 137438953472],
+        ["terabytes", 1099511627776],
+        ["petabits", 140737488355328],
+        ["petabytes", 1125899906842624],
+        ["exabits", 144115188075855872],
+        ["exabytes", 1152921504606846976],
+    ]
+},
 ]
+
