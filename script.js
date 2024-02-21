@@ -28,7 +28,7 @@ let quantities = [{
     id: 'mass',
     defUnitIndex: 0,
     units: [
-        ["kilograms, 1"],
+        ["kilograms", 1],
         ["gram", 1e-3],
         ["milligram", 1e-6],
         ["nanogram", 1e-12],
