@@ -166,3 +166,52 @@ function findUnitIndexByName(name) {
     return -1;
 }
 
+function loadUnits() {
+    optionTop.selectedIndex = findUnitIndexByName(localStorageGetDefault('top: ' + quantity.name, ''));
+    if (optionTop.selectedIndex === -1) optionTop.selectedIndex = quantity.defUnitIndex;
+    optionBottom.selectedIndex = findUnitIndexByName(localStorageGetDefault('bottom: ' + quantity.name,  ''));
+    if (optionBottom.selectedIndex === -1) optionBottom.selectedIndex = quantity.defUnitIndex + 1;
+}
+
+document.addEventListener("DOMContentLoaded", onInitPage, false);
+
+function localStorageGetDefault(name, defaultValue) {
+    let value = localStorage.getItem(name);
+    return (value !== null) ? value : defaultValue;
+}
+
+function isNumber(n) {
+    return !isNaN(parseFloat(n)) && isFinite(n);
+}
+
+function convertInternal(topUnitIndex, value, bottomUnitIndex, inputResult) {
+
+    let topUnitFactor = quantity.units[topUnitIndex][1];
+    let bottomUnitFactor = quantity.units[bottomUnitIndex][1];
+
+    if (isNumber(topUnitFactor)) {
+        value = value * topUnitFactor;
+    } else {
+        value = eval(topUnitFactor);
+    }
+
+    if (isNumber(bottomUnitFactor)) {
+        value = value / bottomUnitFactor;
+    } else {
+        value = eval(quantity.units[bottomUnitIndex][2]);
+    }
+
+    inputResult.value = value.toFixed(4);
+}
+
+function convert() {
+    let value = parseFloat(inputTop.value);
+    if (isNaN(value)) {
+        inputBottom.value = '';
+    } else {
+        let topUnitIndex = optionBottom.selectedIndex;
+        let bottomUnitFactor = optionTop.selectedIndex;
+
+        convertInternal(topUnitIndex, value, bottomUnitIndex, inputTop);
+    }
+}
